@@ -147,7 +147,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="ezh-CN">
-    <link itemprop="mainEntityOfPage" href="https://healer-sty.cn/2025/07/30/SQL%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C%E2%80%94%E2%80%94%E5%A2%9E%E5%88%A0%E6%94%B9%E6%9F%A5/">
+    <link itemprop="mainEntityOfPage" href="https://healer-sty.cn/2025/07/31/SQL%E8%BF%9B%E9%98%B6%E6%93%8D%E4%BD%9C(1)/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -161,7 +161,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2025/07/30/SQL%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C%E2%80%94%E2%80%94%E5%A2%9E%E5%88%A0%E6%94%B9%E6%9F%A5/" class="post-title-link" itemprop="url">SQL基本操作——增删改查</a>
+            <a href="/2025/07/31/SQL%E8%BF%9B%E9%98%B6%E6%93%8D%E4%BD%9C(1)/" class="post-title-link" itemprop="url">SQL进阶操作(1)</a>
         </h2>
 
         <div class="post-meta">
@@ -172,7 +172,7 @@
               <span class="post-meta-item-text">Posted on</span>
               
 
-              <time title="Created: 2025-07-30 20:43:55 / Modified: 20:47:10" itemprop="dateCreated datePublished" datetime="2025-07-30T20:43:55+08:00">2025-07-30</time>
+              <time title="Created: 2025-07-31 18:32:48 / Modified: 18:41:47" itemprop="dateCreated datePublished" datetime="2025-07-31T18:32:48+08:00">2025-07-31</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -195,13 +195,274 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h1 id="建立数据库"><a href="#建立数据库" class="headerlink" title="建立数据库"></a>建立数据库</h1><h2 id="创建数据库"><a href="#创建数据库" class="headerlink" title="创建数据库"></a>创建数据库</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">CREATE DATABASE DB_name;</span><br></pre></td></tr></table></figure>
-<h2 id="使用数据库"><a href="#使用数据库" class="headerlink" title="使用数据库"></a>使用数据库</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">USE DB_name；</span><br></pre></td></tr></table></figure>
-<h2 id="创建表"><a href="#创建表" class="headerlink" title="创建表"></a>创建表</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">CREATE TABLE table_name (</span><br><span class="line">    column1 INT PRIMARY KEY,</span><br><span class="line">    column2 VARCHAR,</span><br><span class="line">    column3 INT,</span><br><span class="line">);</span><br></pre></td></tr></table></figure>
-<h1 id="增删改查操作"><a href="#增删改查操作" class="headerlink" title="增删改查操作"></a>增删改查操作</h1><h2 id="插入数据"><a href="#插入数据" class="headerlink" title="插入数据"></a>插入数据</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">INSERT INTO table_name (column1, column2, column3) VALUES (value1, value2, value3);</span><br></pre></td></tr></table></figure>
+          <h1 id="SQL-JOIN"><a href="#SQL-JOIN" class="headerlink" title="SQL JOIN"></a>SQL JOIN</h1><p>用于把两个或者多个表的行结合起来。</p>
+<table>
+<thead>
+<tr>
+<th align="left">类型</th>
+<th align="left">描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">INNER JOIN</td>
+<td align="left">返回两个表中满足连接条件的记录</td>
+</tr>
+<tr>
+<td align="left">LEFT JOIN</td>
+<td align="left">返回左表中的所有记录</td>
+</tr>
+<tr>
+<td align="left">RIGHT JOIN</td>
+<td align="left">返回右表中的所有记录</td>
+</tr>
+<tr>
+<td align="left">FULL OUTER JOIN</td>
+<td align="left">返回两个表的并集，包含匹配与不匹配记录</td>
+</tr>
+<tr>
+<td align="left">CROSS JOIN</td>
+<td align="left">返回两个表的笛卡尔积，每条左表记录与每条右表记录组合</td>
+</tr>
+<tr>
+<td align="left">SELF JOIN</td>
+<td align="left">将一个表与自身连接</td>
+</tr>
+<tr>
+<td align="left">NATURAL JOIN</td>
+<td align="left">基于同名字段自动匹配连接的表</td>
+</tr>
+</tbody></table>
+<h1 id="INNER-JOIN-关键字"><a href="#INNER-JOIN-关键字" class="headerlink" title="INNER JOIN 关键字"></a>INNER JOIN 关键字</h1><p>INNER JOIN返回两个表中满足连接条件的记录。</p>
+<h2 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h2><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> <span class="keyword">column</span> <span class="keyword">FROM</span> </span><br><span class="line">table_1 <span class="keyword">INNER</span> <span class="keyword">JOIN</span> table_2</span><br><span class="line"><span class="keyword">ON</span> table_1.column1 <span class="operator">=</span> table_2.column2;</span><br></pre></td></tr></table></figure>
+<h2 id="备注"><a href="#备注" class="headerlink" title="备注"></a>备注</h2><ul>
+<li><p>返回column列中，满足匹配条件的记录</p>
+</li>
+<li><p>INNER JOIN 与 JOIN 等同</p>
+</li>
+<li><p>table_1.column1 &#x3D; table_2.column2 通常指定为两个表的共同字段</p>
+</li>
+</ul>
+<h1 id="LEFT-JOIN-关键字"><a href="#LEFT-JOIN-关键字" class="headerlink" title="LEFT JOIN 关键字"></a>LEFT JOIN 关键字</h1><p>LEFT JOIN 返回左表中所有的行，如果右表中没有与之匹配的记录，则返回NULL。</p>
+<h2 id="语法-1"><a href="#语法-1" class="headerlink" title="语法"></a>语法</h2><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> <span class="keyword">column</span> <span class="keyword">FROM</span></span><br><span class="line">table_1 <span class="keyword">LEFT</span> <span class="keyword">JOIN</span> table_2</span><br><span class="line"><span class="keyword">ON</span> table_1.column1 <span class="operator">=</span> table_2.column2;</span><br></pre></td></tr></table></figure>
+<h1 id="RIGHT-JOIN-关键字"><a href="#RIGHT-JOIN-关键字" class="headerlink" title="RIGHT JOIN 关键字"></a>RIGHT JOIN 关键字</h1><p>RIGHT JOIN 返回右表中所有的行，如果左表中没有与之匹配的记录，则返回NULL。</p>
+<h2 id="语法-2"><a href="#语法-2" class="headerlink" title="语法"></a>语法</h2><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> <span class="keyword">column</span> <span class="keyword">FROM</span></span><br><span class="line">table_1 <span class="keyword">RIGHT</span> <span class="keyword">JOIN</span> table_2</span><br><span class="line"><span class="keyword">ON</span> table_1.column1 <span class="operator">=</span> table_2.column2;</span><br></pre></td></tr></table></figure>
+<h1 id="FULL-JOIN-关键字"><a href="#FULL-JOIN-关键字" class="headerlink" title="FULL JOIN 关键字"></a>FULL JOIN 关键字</h1><p>FULL JOIN 用于保留两个表中的所有记录，即使其中一个表没有匹配项。</p>
+<h2 id="语法-3"><a href="#语法-3" class="headerlink" title="语法"></a>语法</h2><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> <span class="keyword">column</span> <span class="keyword">FROM</span></span><br><span class="line">table_1 <span class="keyword">FULL</span> <span class="keyword">OUTER</span> <span class="keyword">JOIN</span> table_2</span><br><span class="line"><span class="keyword">ON</span> table_1.column1 <span class="operator">=</span> table_2.column2;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>column表示需要返回的一个或多个列</li>
+</ul>
 
-<h2 id="查询数据"><a href="#查询数据" class="headerlink" title="查询数据"></a>查询数据</h2><h3 id="SELECT"><a href="#SELECT" class="headerlink" title="SELECT"></a>SELECT</h3><p>Select 用于从数据库中选取数据，被选取的数据存储在一个结果表中，称为结果集。</p>
-<h4 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h4><ul>
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="ezh-CN">
+    <link itemprop="mainEntityOfPage" href="https://healer-sty.cn/2025/07/31/SQL%E5%9F%BA%E6%9C%AC%E6%9F%A5%E8%AF%A2%EF%BC%882%EF%BC%89/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Sty">
+      <meta itemprop="description" content="Record and think">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Healer.Experiment">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2025/07/31/SQL%E5%9F%BA%E6%9C%AC%E6%9F%A5%E8%AF%A2%EF%BC%882%EF%BC%89/" class="post-title-link" itemprop="url">SQL基本查询（2）</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+              
+
+              <time title="Created: 2025-07-31 18:32:36 / Modified: 18:40:55" itemprop="dateCreated datePublished" datetime="2025-07-31T18:32:36+08:00">2025-07-31</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E6%8A%80%E6%9C%AF%E8%A7%A3%E6%9E%84%E5%AE%A4%EF%BC%8C-SQL/" itemprop="url" rel="index"><span itemprop="name">技术解构室， SQL</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="SELECT-TOP-LIMIT子句"><a href="#SELECT-TOP-LIMIT子句" class="headerlink" title="SELECT TOP, LIMIT子句"></a>SELECT TOP, LIMIT子句</h1><p>SELECT TOP语句用于限制返回结果集的行数。</p>
+<p>它通常用于只需要显示前几行的数据，在特别大的数据集中，可以显著提高查询性能。</p>
+<ul>
+<li><p>SELECT TOP语句在SQL Server中使用，MySQL中使用的是LIMIT语句。</p>
+</li>
+<li><p>当使用SELECT TOP &#x2F; LIMIT 语句时，最好搭配ODER BY语句，使返回特定顺序的前几行。</p>
+</li>
+</ul>
+<h2 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h2><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> column1, column2 <span class="keyword">FROM</span> table_name LIMIT number;</span><br></pre></td></tr></table></figure>
+<h1 id="LIKE-操作符"><a href="#LIKE-操作符" class="headerlink" title="LIKE 操作符"></a>LIKE 操作符</h1><p>LIKE是在WHERE子句中进行模糊查询的关键字，允许根据模式匹配来选择数据，通常与%和_通配符搭配使用。</p>
+<h2 id="语法-1"><a href="#语法-1" class="headerlink" title="语法"></a>语法</h2><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> column1, column2</span><br><span class="line"><span class="keyword">FROM</span> table_name</span><br><span class="line"><span class="keyword">WHERE</span> <span class="keyword">column</span> <span class="keyword">LIKE</span> <span class="keyword">pattern</span>;</span><br></pre></td></tr></table></figure>
+<h2 id="通配符"><a href="#通配符" class="headerlink" title="通配符"></a>通配符</h2><p>%：匹配任意字符</p>
+<p>_：匹配单个字符</p>
+<table>
+<thead>
+<tr>
+<th align="left">搭配方式</th>
+<th align="left">含义</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">a%</td>
+<td align="left">所有以a开头的记录</td>
+</tr>
+<tr>
+<td align="left">_a%</td>
+<td align="left">第二个字符为a的所有记录</td>
+</tr>
+<tr>
+<td align="left">%a%</td>
+<td align="left">包含a的所有记录</td>
+</tr>
+</tbody></table>
+<h1 id="通配符-1"><a href="#通配符-1" class="headerlink" title="通配符"></a>通配符</h1><p>通配符可以用于替代字符串中的任何其它字符，常与LIKE搭配使用。</p>
+<table>
+<thead>
+<tr>
+<th align="left">通配符</th>
+<th align="left">含义</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">%</td>
+<td align="left">替代0个或多个字符</td>
+</tr>
+<tr>
+<td align="left">_</td>
+<td align="left">替代1个字符</td>
+</tr>
+<tr>
+<td align="left">[charlist]</td>
+<td align="left">字符列中的任何单一字符</td>
+</tr>
+<tr>
+<td align="left">[!charlist]</td>
+<td align="left">不在字符列中的任何单一字符</td>
+</tr>
+</tbody></table>
+<h1 id="IN-操作符"><a href="#IN-操作符" class="headerlink" title="IN 操作符"></a>IN 操作符</h1><p>IN操作符允许在WHERE子句中规定多个值</p>
+<h2 id="语法-2"><a href="#语法-2" class="headerlink" title="语法"></a>语法</h2><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> column1, column2 <span class="keyword">FROM</span> table_name</span><br><span class="line"><span class="keyword">WHERE</span> <span class="keyword">column</span> <span class="keyword">IN</span> (value1, value2, ...);</span><br></pre></td></tr></table></figure>
+<h1 id="BETWEEN-操作符"><a href="#BETWEEN-操作符" class="headerlink" title="BETWEEN 操作符"></a>BETWEEN 操作符</h1><p>BETWEEN操作符选取介于两个值之间的值。这些值可以是数值、文本、日期。</p>
+<h2 id="语法-3"><a href="#语法-3" class="headerlink" title="语法"></a>语法</h2><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> column1, column2 <span class="keyword">FROM</span> table_name </span><br><span class="line"><span class="keyword">WHERE</span> <span class="keyword">column</span> <span class="keyword">BETWEEN</span> value1 <span class="keyword">AND</span> value2;</span><br></pre></td></tr></table></figure>
+<h1 id="别名"><a href="#别名" class="headerlink" title="别名"></a>别名</h1><p>通过SQL语句，为表或列的名称指定其它名称</p>
+<h2 id="语法-4"><a href="#语法-4" class="headerlink" title="语法"></a>语法</h2><p>为列指定别名</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> column1 <span class="keyword">AS</span> A, column2 <span class="keyword">AS</span> B <span class="keyword">FROM</span> table_name;</span><br></pre></td></tr></table></figure>
+<p>为表指定别名</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> <span class="operator">*</span> <span class="keyword">FROM</span> table_name <span class="keyword">AS</span> A;</span><br></pre></td></tr></table></figure>
+
+
+
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="ezh-CN">
+    <link itemprop="mainEntityOfPage" href="https://healer-sty.cn/2025/07/31/SQL%E5%9F%BA%E6%9C%AC%E6%9F%A5%E8%AF%A2%EF%BC%881%EF%BC%89/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Sty">
+      <meta itemprop="description" content="Record and think">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Healer.Experiment">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2025/07/31/SQL%E5%9F%BA%E6%9C%AC%E6%9F%A5%E8%AF%A2%EF%BC%881%EF%BC%89/" class="post-title-link" itemprop="url">SQL基本查询（1）</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+              
+
+              <time title="Created: 2025-07-31 18:32:30 / Modified: 18:39:58" itemprop="dateCreated datePublished" datetime="2025-07-31T18:32:30+08:00">2025-07-31</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E6%8A%80%E6%9C%AF%E8%A7%A3%E6%9E%84%E5%AE%A4%EF%BC%8C-SQL/" itemprop="url" rel="index"><span itemprop="name">技术解构室， SQL</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="创建数据库"><a href="#创建数据库" class="headerlink" title="创建数据库"></a>创建数据库</h1><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">CREATE DATABASE DB_name;</span><br></pre></td></tr></table></figure>
+<h1 id="使用数据库"><a href="#使用数据库" class="headerlink" title="使用数据库"></a>使用数据库</h1><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">USE DB_name；</span><br></pre></td></tr></table></figure>
+<h1 id="创建表"><a href="#创建表" class="headerlink" title="创建表"></a>创建表</h1><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">CREATE TABLE table_name (</span><br><span class="line">    column1 INT PRIMARY KEY,</span><br><span class="line">    column2 VARCHAR,</span><br><span class="line">    column3 INT,</span><br><span class="line">);</span><br></pre></td></tr></table></figure>
+<h1 id="插入数据"><a href="#插入数据" class="headerlink" title="插入数据"></a>插入数据</h1><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">INSERT INTO table_name (column1, column2, column3) VALUES (value1, value2, value3);</span><br></pre></td></tr></table></figure>
+
+
+<h1 id="查询数据"><a href="#查询数据" class="headerlink" title="查询数据"></a>查询数据</h1><h2 id="SELECT"><a href="#SELECT" class="headerlink" title="SELECT"></a>SELECT</h2><p>Select 用于从数据库中选取数据，被选取的数据存储在一个结果表中，称为结果集。</p>
+<h3 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h3><ul>
 <li>选择指定字段</li>
 </ul>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">SELECT column1, column2, column3, FROM table_name;</span><br></pre></td></tr></table></figure>
@@ -210,11 +471,11 @@
 </ul>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">SELECT * FROM table_name;</span><br></pre></td></tr></table></figure>
 <p><strong>备注 ：</strong> *为通配符，表示所有字段</p>
-<h3 id="SELECT-DISTINCT"><a href="#SELECT-DISTINCT" class="headerlink" title="SELECT DISTINCT"></a>SELECT DISTINCT</h3><p>在表中，某一列可能存在重复值，select distinct 可以用于仅列出不同的值，即返回唯一不同的值。</p>
-<h4 id="语法-1"><a href="#语法-1" class="headerlink" title="语法"></a>语法</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">SELECT DISTINCT column1. column2, column3, from table_name;</span><br></pre></td></tr></table></figure>
-<h3 id="WHERE"><a href="#WHERE" class="headerlink" title="WHERE"></a>WHERE</h3><p>where子句用于过滤记录，提取满足指定条件的记录。</p>
-<h4 id="语法-2"><a href="#语法-2" class="headerlink" title="语法"></a>语法</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">SELECT column1, column2, ... FROM table_name</span><br><span class="line">WHERE condition;</span><br></pre></td></tr></table></figure>
-<h4 id="WHERE-子句中的运算符"><a href="#WHERE-子句中的运算符" class="headerlink" title="WHERE 子句中的运算符"></a>WHERE 子句中的运算符</h4><table>
+<h2 id="SELECT-DISTINCT"><a href="#SELECT-DISTINCT" class="headerlink" title="SELECT DISTINCT"></a>SELECT DISTINCT</h2><p>在表中，某一列可能存在重复值，select distinct 可以用于仅列出不同的值，即返回唯一不同的值。</p>
+<h3 id="语法-1"><a href="#语法-1" class="headerlink" title="语法"></a>语法</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">SELECT DISTINCT column1. column2, column3, from table_name;</span><br></pre></td></tr></table></figure>
+<h2 id="WHERE"><a href="#WHERE" class="headerlink" title="WHERE"></a>WHERE</h2><p>where子句用于过滤记录，提取满足指定条件的记录。</p>
+<h3 id="语法-2"><a href="#语法-2" class="headerlink" title="语法"></a>语法</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">SELECT column1, column2, ... FROM table_name</span><br><span class="line">WHERE condition;</span><br></pre></td></tr></table></figure>
+<h3 id="WHERE-子句中的运算符"><a href="#WHERE-子句中的运算符" class="headerlink" title="WHERE 子句中的运算符"></a>WHERE 子句中的运算符</h3><table>
 <thead>
 <tr>
 <th align="left">运算符</th>
@@ -258,7 +519,7 @@
 <td align="left">针对某列的多个可能值</td>
 </tr>
 </tbody></table>
-<h4 id="WHERE-子句实例"><a href="#WHERE-子句实例" class="headerlink" title="WHERE 子句实例"></a>WHERE 子句实例</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Select * from table_name where value between value1 and value2;</span><br><span class="line">Select * from table_name where value in (value1, value2, value3);</span><br><span class="line">Select * from table_name where value like &#x27;M%&#x27;;</span><br></pre></td></tr></table></figure>
+<h3 id="WHERE-子句实例"><a href="#WHERE-子句实例" class="headerlink" title="WHERE 子句实例"></a>WHERE 子句实例</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Select * from table_name where value between value1 and value2;</span><br><span class="line">Select * from table_name where value in (value1, value2, value3);</span><br><span class="line">Select * from table_name where value like &#x27;M%&#x27;;</span><br></pre></td></tr></table></figure>
 <p>备注：<br>模糊查询LIKE</p>
 <ul>
 <li><p>% 表示多个字符，_表示一个字符；</p>
@@ -270,19 +531,19 @@
 <li><p> %M_ : 表示查询M在倒数第二位的所有记录。</p>
 </li>
 </ul>
-<h3 id="AND-OR"><a href="#AND-OR" class="headerlink" title="AND &amp; OR"></a>AND &amp; OR</h3><p>AND &amp; OR 基于一个以上的条件对记录进行过滤</p>
+<h2 id="AND-OR"><a href="#AND-OR" class="headerlink" title="AND &amp; OR"></a>AND &amp; OR</h2><p>AND &amp; OR 基于一个以上的条件对记录进行过滤</p>
 <p>如果条件1与条件2都成立，则AND运算符显示一条记录</p>
 <p>如果条件1与条件2有至少一个成立，则OR运算符显示一条记录</p>
-<h4 id="语法-3"><a href="#语法-3" class="headerlink" title="语法"></a>语法</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">SELECT * FROM table_name WHERE condition1 AND condition2;</span><br><span class="line">SELECT * FROM table_name WHERE condition1 OR condition2;</span><br></pre></td></tr></table></figure>
-<h4 id="AND与OR结合用法"><a href="#AND与OR结合用法" class="headerlink" title="AND与OR结合用法"></a>AND与OR结合用法</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">SELECT * FROM table_name WHERE condition3 AND (ondition1 OR condition2);</span><br></pre></td></tr></table></figure>
-<h3 id="ODER-BY"><a href="#ODER-BY" class="headerlink" title="ODER BY"></a>ODER BY</h3><p>ODER BY 用于对结果集按照一个或多个列进行排序。ODER BY 默认按照升序，如需降序可使用DESC关键字。</p>
-<h4 id="语法-4"><a href="#语法-4" class="headerlink" title="语法"></a>语法</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">SELECT column1, column2, column3  FROM table_name ODER BY column1 ASC|DESC;</span><br></pre></td></tr></table></figure>
+<h3 id="语法-3"><a href="#语法-3" class="headerlink" title="语法"></a>语法</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">SELECT * FROM table_name WHERE condition1 AND condition2;</span><br><span class="line">SELECT * FROM table_name WHERE condition1 OR condition2;</span><br></pre></td></tr></table></figure>
+<h3 id="AND与OR结合用法"><a href="#AND与OR结合用法" class="headerlink" title="AND与OR结合用法"></a>AND与OR结合用法</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">SELECT * FROM table_name WHERE condition3 AND (ondition1 OR condition2);</span><br></pre></td></tr></table></figure>
+<h2 id="ODER-BY"><a href="#ODER-BY" class="headerlink" title="ODER BY"></a>ODER BY</h2><p>ODER BY 用于对结果集按照一个或多个列进行排序。ODER BY 默认按照升序，如需降序可使用DESC关键字。</p>
+<h3 id="语法-4"><a href="#语法-4" class="headerlink" title="语法"></a>语法</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">SELECT column1, column2, column3  FROM table_name ODER BY column1 ASC|DESC;</span><br></pre></td></tr></table></figure>
 <p>备注：<br>ASC表示升序</p>
 <p>DSEC表示降序</p>
-<h3 id="UPDATE"><a href="#UPDATE" class="headerlink" title="UPDATE"></a>UPDATE</h3><p>UPDATE用于更新表中已存在的记录</p>
+<h2 id="UPDATE"><a href="#UPDATE" class="headerlink" title="UPDATE"></a>UPDATE</h2><p>UPDATE用于更新表中已存在的记录</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">UPDATE table_name SET column1=value1, column2=value2 WHERE condition;</span><br></pre></td></tr></table></figure>
 <p>备注：如果没有WHERE子句，表中对应字段的所有记录将被更新</p>
-<h3 id="DELETE"><a href="#DELETE" class="headerlink" title="DELETE"></a>DELETE</h3><p>DELETE语句用于删除表中的行</p>
+<h2 id="DELETE"><a href="#DELETE" class="headerlink" title="DELETE"></a>DELETE</h2><p>DELETE语句用于删除表中的行</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">DELETE FROM table_name WHERE condition</span><br></pre></td></tr></table></figure>
 
 
@@ -304,7 +565,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="ezh-CN">
-    <link itemprop="mainEntityOfPage" href="https://healer-sty.cn/2025/07/28/SQL%E5%85%A5%E9%97%A8%E2%80%94%E2%80%94%E6%95%B0%E6%8D%AE%E5%BA%93%E5%9F%BA%E7%A1%80/">
+    <link itemprop="mainEntityOfPage" href="https://healer-sty.cn/2025/07/28/%E6%95%B0%E6%8D%AE%E5%BA%93%E5%9F%BA%E7%A1%80/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -318,7 +579,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2025/07/28/SQL%E5%85%A5%E9%97%A8%E2%80%94%E2%80%94%E6%95%B0%E6%8D%AE%E5%BA%93%E5%9F%BA%E7%A1%80/" class="post-title-link" itemprop="url">SQL入门——数据库基础</a>
+            <a href="/2025/07/28/%E6%95%B0%E6%8D%AE%E5%BA%93%E5%9F%BA%E7%A1%80/" class="post-title-link" itemprop="url">数据库基础</a>
         </h2>
 
         <div class="post-meta">
@@ -335,7 +596,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2025-07-30 20:42:51" itemprop="dateModified" datetime="2025-07-30T20:42:51+08:00">2025-07-30</time>
+                <time title="Modified: 2025-07-31 18:33:26" itemprop="dateModified" datetime="2025-07-31T18:33:26+08:00">2025-07-31</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -565,7 +826,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">3</span>
+          <span class="site-state-item-count">5</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
