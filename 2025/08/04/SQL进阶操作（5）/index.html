@@ -20,19 +20,19 @@
     var CONFIG = {"hostname":"healer-sty.cn","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"always","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
   </script>
 
-  <meta name="description" content="UNION 操作符UNION操作用于合并两个或多个SELECT语句的结果集。使用UNION操作时，每个SELECT语句需拥有相同数量的列。  UNION操作符默认去除重复记录  语法12345SELECT column1, column2FROM table_1UNION ALLSELECT column1, column2FROM table_2; INSERT INTO SELECT 语句IN">
+  <meta name="description" content="视图视图是基于SQL语句得到结果集的可视化表。 CREATE VIEW语法 创建视图  1234CREATE VIEW view_name ASSELECT column1, column2, column3FROM table_nameWHERE condition;  查询视图  1SELECT * FROM view_name;  更新视图  在SQL中，无法直接更新视图。更新视图所基于的表">
 <meta property="og:type" content="article">
-<meta property="og:title" content="SQL进阶操作(2)">
-<meta property="og:url" content="https://healer-sty.cn/2025/08/01/SQL%E8%BF%9B%E9%98%B6%E6%93%8D%E4%BD%9C(2)/index.html">
+<meta property="og:title" content="SQL进阶操作（5）">
+<meta property="og:url" content="https://healer-sty.cn/2025/08/04/SQL%E8%BF%9B%E9%98%B6%E6%93%8D%E4%BD%9C%EF%BC%885%EF%BC%89/index.html">
 <meta property="og:site_name" content="Healer">
-<meta property="og:description" content="UNION 操作符UNION操作用于合并两个或多个SELECT语句的结果集。使用UNION操作时，每个SELECT语句需拥有相同数量的列。  UNION操作符默认去除重复记录  语法12345SELECT column1, column2FROM table_1UNION ALLSELECT column1, column2FROM table_2; INSERT INTO SELECT 语句IN">
+<meta property="og:description" content="视图视图是基于SQL语句得到结果集的可视化表。 CREATE VIEW语法 创建视图  1234CREATE VIEW view_name ASSELECT column1, column2, column3FROM table_nameWHERE condition;  查询视图  1SELECT * FROM view_name;  更新视图  在SQL中，无法直接更新视图。更新视图所基于的表">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2025-08-01T10:50:19.000Z">
-<meta property="article:modified_time" content="2025-08-02T03:52:55.333Z">
+<meta property="article:published_time" content="2025-08-04T12:36:29.000Z">
+<meta property="article:modified_time" content="2025-08-04T12:39:03.200Z">
 <meta property="article:author" content="Sty">
 <meta name="twitter:card" content="summary">
 
-<link rel="canonical" href="https://healer-sty.cn/2025/08/01/SQL%E8%BF%9B%E9%98%B6%E6%93%8D%E4%BD%9C(2)/">
+<link rel="canonical" href="https://healer-sty.cn/2025/08/04/SQL%E8%BF%9B%E9%98%B6%E6%93%8D%E4%BD%9C%EF%BC%885%EF%BC%89/">
 
 
 <script id="page-configurations">
@@ -45,7 +45,7 @@
   };
 </script>
 
-  <title>SQL进阶操作(2) | Healer</title>
+  <title>SQL进阶操作（5） | Healer</title>
   
 
 
@@ -161,7 +161,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://healer-sty.cn/2025/08/01/SQL%E8%BF%9B%E9%98%B6%E6%93%8D%E4%BD%9C(2)/">
+    <link itemprop="mainEntityOfPage" href="https://healer-sty.cn/2025/08/04/SQL%E8%BF%9B%E9%98%B6%E6%93%8D%E4%BD%9C%EF%BC%885%EF%BC%89/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/image.gif">
@@ -174,7 +174,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          SQL进阶操作(2)
+          SQL进阶操作（5）
         </h1>
 
         <div class="post-meta">
@@ -184,7 +184,7 @@
               </span>
               <span class="post-meta-item-text">发表于</span>
 
-              <time title="创建时间：2025-08-01 18:50:19" itemprop="dateCreated datePublished" datetime="2025-08-01T18:50:19+08:00">2025-08-01</time>
+              <time title="创建时间：2025-08-04 20:36:29" itemprop="dateCreated datePublished" datetime="2025-08-04T20:36:29+08:00">2025-08-04</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -214,26 +214,136 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h1 id="UNION-操作符"><a href="#UNION-操作符" class="headerlink" title="UNION 操作符"></a>UNION 操作符</h1><p>UNION操作用于合并两个或多个SELECT语句的结果集。使用UNION操作时，每个SELECT语句需拥有相同数量的列。</p>
+        <h1 id="视图"><a href="#视图" class="headerlink" title="视图"></a>视图</h1><p>视图是基于SQL语句得到结果集的可视化表。</p>
+<h1 id="CREATE-VIEW"><a href="#CREATE-VIEW" class="headerlink" title="CREATE VIEW"></a>CREATE VIEW</h1><h3 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h3><ul>
+<li>创建视图</li>
+</ul>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">CREATE</span> <span class="keyword">VIEW</span> view_name <span class="keyword">AS</span></span><br><span class="line"><span class="keyword">SELECT</span> column1, column2, column3</span><br><span class="line"><span class="keyword">FROM</span> table_name</span><br><span class="line"><span class="keyword">WHERE</span> <span class="keyword">condition</span>;</span><br></pre></td></tr></table></figure>
 <ul>
-<li>UNION操作符默认去除重复记录</li>
+<li>查询视图</li>
 </ul>
-<h2 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h2><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> column1, column2</span><br><span class="line"><span class="keyword">FROM</span> table_1</span><br><span class="line"><span class="keyword">UNION</span> <span class="keyword">ALL</span></span><br><span class="line"><span class="keyword">SELECT</span> column1, column2</span><br><span class="line"><span class="keyword">FROM</span> table_2;</span><br></pre></td></tr></table></figure>
-<h1 id="INSERT-INTO-SELECT-语句"><a href="#INSERT-INTO-SELECT-语句" class="headerlink" title="INSERT INTO SELECT 语句"></a>INSERT INTO SELECT 语句</h1><p>INSERT INTO SELECT 从一个表复制数据，然后把数据插入到一个已存在的表中。</p>
-<h2 id="语法-1"><a href="#语法-1" class="headerlink" title="语法"></a>语法</h2><ul>
-<li>可以复制表中所有列</li>
-</ul>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">INSERT INTO</span> table_2</span><br><span class="line"><span class="keyword">SELECT</span> <span class="operator">*</span> <span class="keyword">FROM</span> table_1;</span><br></pre></td></tr></table></figure>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> <span class="operator">*</span> <span class="keyword">FROM</span> view_name;</span><br></pre></td></tr></table></figure>
 <ul>
-<li>也可以复制选中列</li>
+<li>更新视图</li>
 </ul>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">INSERT INTO</span> table_2 (column1, column2)</span><br><span class="line"><span class="keyword">SELECT</span> column1, column2 <span class="keyword">FROM</span> table_1;</span><br></pre></td></tr></table></figure>
-<h1 id="CREATE-DATABASE-语句"><a href="#CREATE-DATABASE-语句" class="headerlink" title="CREATE DATABASE 语句"></a>CREATE DATABASE 语句</h1><p>CREATE DATABASE 用于创建数据库</p>
-<h2 id="语法-2"><a href="#语法-2" class="headerlink" title="语法"></a>语法</h2><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">CREATE</span> DATABASE database_name;</span><br></pre></td></tr></table></figure>
-<h1 id="CREATE-TABLE-语句"><a href="#CREATE-TABLE-语句" class="headerlink" title="CREATE TABLE 语句"></a>CREATE TABLE 语句</h1><p>CREATE TABLE 用于创建数据库中的表。表由行和列组成，每个表需要有表名。</p>
-<h2 id="语法-3"><a href="#语法-3" class="headerlink" title="语法"></a>语法</h2><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">CREATE TABLE</span> table_name &#123;</span><br><span class="line">column1 data_type(size);</span><br><span class="line">column2 data_type(size);</span><br><span class="line">...</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<p>在SQL中，无法直接更新视图。更新视图所基于的表中的数据，视图将会反应表中的变化。</p>
+<ul>
+<li>删除视图</li>
+</ul>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">DROP</span> <span class="keyword">VIEW</span> view_name;</span><br></pre></td></tr></table></figure>
+<h1 id="DATE函数"><a href="#DATE函数" class="headerlink" title="DATE函数"></a>DATE函数</h1><ul>
+<li>MySQL重要内建日期函数。</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th align="left">函数</th>
+<th align="left">描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">NOW（）</td>
+<td align="left">返回当前的日期和时间</td>
+</tr>
+<tr>
+<td align="left">CURDATE（）</td>
+<td align="left">返回当前的日期</td>
+</tr>
+<tr>
+<td align="left">CURTIME（）</td>
+<td align="left">返回当前的时间</td>
+</tr>
+<tr>
+<td align="left">DATE（）</td>
+<td align="left">提取日期或日期表达式的日期部分</td>
+</tr>
+<tr>
+<td align="left">EXTRACT（）</td>
+<td align="left">返回日期时间的单独部分</td>
+</tr>
+<tr>
+<td align="left">DATE_ADD（）</td>
+<td align="left">向日期添加指定的时间间隔</td>
+</tr>
+<tr>
+<td align="left">DATE_SUB（）</td>
+<td align="left">从日期减去指定的时间间隔</td>
+</tr>
+<tr>
+<td align="left">DATEDIFF（）</td>
+<td align="left">返回两个日期之间的天数</td>
+</tr>
+<tr>
+<td align="left">DATE_FORMAT（）</td>
+<td align="left">用不同的格式显示日期&#x2F;时间</td>
+</tr>
+</tbody></table>
+<ul>
+<li>MySQL存储日期的数据类型</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th align="left">DATE</th>
+<th align="left">YYYY-MM-DD</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">DATETIME</td>
+<td align="left">YYYY-MM-DD HH:MM:SS</td>
+</tr>
+<tr>
+<td align="left">TIMESTAMP</td>
+<td align="left">YYYY-MM-DD HH:MM:SS</td>
+</tr>
+<tr>
+<td align="left">YEAR</td>
+<td align="left">YYYY &#x2F; YY</td>
+</tr>
+</tbody></table>
+<h3 id="语法-1"><a href="#语法-1" class="headerlink" title="语法"></a>语法</h3><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> <span class="operator">*</span> <span class="keyword">FROM</span> table_name</span><br><span class="line"><span class="keyword">WHERE</span> column_name<span class="operator">=</span><span class="string">&#x27;YYYY-MM-DD&#x27;</span>; </span><br></pre></td></tr></table></figure>
+<h1 id="NULL值"><a href="#NULL值" class="headerlink" title="NULL值"></a>NULL值</h1><p>NULL值代表遗漏的未知数据。如果某个列的数据是可选地，在不插入值的情况下可以对该列插入一条记录，该列对应的记录将以NULL值保存。</p>
+<h3 id="语法-2"><a href="#语法-2" class="headerlink" title="语法"></a>语法</h3><ul>
+<li>选取带有NULL值的记录</li>
+</ul>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> column1, column2, column3</span><br><span class="line"><span class="keyword">FROM</span> table_name</span><br><span class="line"><span class="keyword">WHERE</span> column4 <span class="keyword">IS</span> <span class="keyword">NULL</span>;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>选取不带有NULL值的记录</li>
+</ul>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> column1, column2, column3</span><br><span class="line"><span class="keyword">FROM</span> table_name</span><br><span class="line"><span class="keyword">WHERE</span> column4 <span class="keyword">IS</span> <span class="keyword">NOT NULL</span>;</span><br></pre></td></tr></table></figure>
+<h1 id="NULL函数"><a href="#NULL函数" class="headerlink" title="NULL函数"></a>NULL函数</h1><ul>
+<li>如果column3里存在NULL值，则IFNULL（）返回0。</li>
+</ul>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> column1, column2<span class="operator">*</span>(IFNULL(column3, <span class="number">0</span>))</span><br><span class="line"><span class="keyword">FROM</span> table_name;</span><br></pre></td></tr></table></figure>
+<h1 id="SQL通用数据类型"><a href="#SQL通用数据类型" class="headerlink" title="SQL通用数据类型"></a>SQL通用数据类型</h1><table>
+<thead>
+<tr>
+<th align="left"><strong>数据类型</strong></th>
+<th align="left"><strong>描述</strong></th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">CHAR(size)</td>
+<td align="left">字符&#x2F;字符串，固定长度size。</td>
+</tr>
+<tr>
+<td align="left">VARCHAR(size)</td>
+<td align="left">字符&#x2F;字符串，可变长度，最大长度size。</td>
+</tr>
+<tr>
+<td align="left">DATE</td>
+<td align="left">存储年、月、日</td>
+</tr>
+<tr>
+<td align="left">TIME</td>
+<td align="left">存储时、分、秒</td>
+</tr>
+<tr>
+<td align="left">TIMESTAMP</td>
+<td align="left">存储年、月、日、时、分、秒</td>
+</tr>
+</tbody></table>
 
-<h1 id=""><a href="#" class="headerlink" title=""></a></h1>
     </div>
 
     
@@ -248,7 +358,7 @@
   </li>
   <li class="post-copyright-link">
     <strong>本文链接：</strong>
-    <a href="https://healer-sty.cn/2025/08/01/SQL%E8%BF%9B%E9%98%B6%E6%93%8D%E4%BD%9C(2)/" title="SQL进阶操作(2)">https://healer-sty.cn/2025/08/01/SQL进阶操作(2)/</a>
+    <a href="https://healer-sty.cn/2025/08/04/SQL%E8%BF%9B%E9%98%B6%E6%93%8D%E4%BD%9C%EF%BC%885%EF%BC%89/" title="SQL进阶操作（5）">https://healer-sty.cn/2025/08/04/SQL进阶操作（5）/</a>
   </li>
   <li class="post-copyright-license">
     <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
@@ -265,8 +375,8 @@
         
     <div class="post-nav">
       <div class="post-nav-item">
-    <a href="/2025/07/31/SQL%E8%BF%9B%E9%98%B6%E6%93%8D%E4%BD%9C(1)/" rel="prev" title="SQL进阶操作(1)">
-      <i class="fa fa-chevron-left"></i> SQL进阶操作(1)
+    <a href="/2025/08/04/SQL%E8%BF%9B%E9%98%B6%E6%93%8D%E4%BD%9C%EF%BC%884%EF%BC%89/" rel="prev" title="SQL进阶操作（4）">
+      <i class="fa fa-chevron-left"></i> SQL进阶操作（4）
     </a></div>
       <div class="post-nav-item"></div>
     </div>
@@ -327,7 +437,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#UNION-%E6%93%8D%E4%BD%9C%E7%AC%A6"><span class="nav-number">1.</span> <span class="nav-text">UNION 操作符</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%AF%AD%E6%B3%95"><span class="nav-number">1.1.</span> <span class="nav-text">语法</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#INSERT-INTO-SELECT-%E8%AF%AD%E5%8F%A5"><span class="nav-number">2.</span> <span class="nav-text">INSERT INTO SELECT 语句</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%AF%AD%E6%B3%95-1"><span class="nav-number">2.1.</span> <span class="nav-text">语法</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#CREATE-DATABASE-%E8%AF%AD%E5%8F%A5"><span class="nav-number">3.</span> <span class="nav-text">CREATE DATABASE 语句</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%AF%AD%E6%B3%95-2"><span class="nav-number">3.1.</span> <span class="nav-text">语法</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#CREATE-TABLE-%E8%AF%AD%E5%8F%A5"><span class="nav-number">4.</span> <span class="nav-text">CREATE TABLE 语句</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%AF%AD%E6%B3%95-3"><span class="nav-number">4.1.</span> <span class="nav-text">语法</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link"><span class="nav-number">5.</span> <span class="nav-text"></span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E8%A7%86%E5%9B%BE"><span class="nav-number">1.</span> <span class="nav-text">视图</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#CREATE-VIEW"><span class="nav-number">2.</span> <span class="nav-text">CREATE VIEW</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%AF%AD%E6%B3%95"><span class="nav-number">2.0.1.</span> <span class="nav-text">语法</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#DATE%E5%87%BD%E6%95%B0"><span class="nav-number">3.</span> <span class="nav-text">DATE函数</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%AF%AD%E6%B3%95-1"><span class="nav-number">3.0.1.</span> <span class="nav-text">语法</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#NULL%E5%80%BC"><span class="nav-number">4.</span> <span class="nav-text">NULL值</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%AF%AD%E6%B3%95-2"><span class="nav-number">4.0.1.</span> <span class="nav-text">语法</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#NULL%E5%87%BD%E6%95%B0"><span class="nav-number">5.</span> <span class="nav-text">NULL函数</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#SQL%E9%80%9A%E7%94%A8%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B"><span class="nav-number">6.</span> <span class="nav-text">SQL通用数据类型</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -343,7 +453,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">6</span>
+          <span class="site-state-item-count">9</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
