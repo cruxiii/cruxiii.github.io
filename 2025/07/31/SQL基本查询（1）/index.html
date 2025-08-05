@@ -20,15 +20,15 @@
     var CONFIG = {"hostname":"healer-sty.cn","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"always","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
   </script>
 
-  <meta name="description" content="创建数据库1CREATE DATABASE DB_name; 使用数据库1USE DB_name； 创建表12345CREATE TABLE table_name (    column1 INT PRIMARY KEY,    column2 VARCHAR,    column3 INT,); 插入数据1INSERT INTO table_name (column1, column2, col">
+  <meta name="description" content="创建数据库1CREATE DATABASE DB_name; 使用数据库1USE DB_name； 创建表12345CREATE TABLE table_name &#123;    column1 INT PRIMARY KEY,    column2 VARCHAR,    column3 INT&#125;; 插入数据1INSERT INTO table_name (column1, col">
 <meta property="og:type" content="article">
 <meta property="og:title" content="SQL基本查询（1）">
 <meta property="og:url" content="https://healer-sty.cn/2025/07/31/SQL%E5%9F%BA%E6%9C%AC%E6%9F%A5%E8%AF%A2%EF%BC%881%EF%BC%89/index.html">
 <meta property="og:site_name" content="Healer">
-<meta property="og:description" content="创建数据库1CREATE DATABASE DB_name; 使用数据库1USE DB_name； 创建表12345CREATE TABLE table_name (    column1 INT PRIMARY KEY,    column2 VARCHAR,    column3 INT,); 插入数据1INSERT INTO table_name (column1, column2, col">
+<meta property="og:description" content="创建数据库1CREATE DATABASE DB_name; 使用数据库1USE DB_name； 创建表12345CREATE TABLE table_name &#123;    column1 INT PRIMARY KEY,    column2 VARCHAR,    column3 INT&#125;; 插入数据1INSERT INTO table_name (column1, col">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2025-07-31T10:32:30.000Z">
-<meta property="article:modified_time" content="2025-08-02T03:52:29.219Z">
+<meta property="article:modified_time" content="2025-08-05T12:31:06.467Z">
 <meta property="article:author" content="Sty">
 <meta name="twitter:card" content="summary">
 
@@ -216,7 +216,7 @@
       
         <h1 id="创建数据库"><a href="#创建数据库" class="headerlink" title="创建数据库"></a>创建数据库</h1><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">CREATE DATABASE DB_name;</span><br></pre></td></tr></table></figure>
 <h1 id="使用数据库"><a href="#使用数据库" class="headerlink" title="使用数据库"></a>使用数据库</h1><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">USE DB_name；</span><br></pre></td></tr></table></figure>
-<h1 id="创建表"><a href="#创建表" class="headerlink" title="创建表"></a>创建表</h1><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">CREATE TABLE table_name (</span><br><span class="line">    column1 INT PRIMARY KEY,</span><br><span class="line">    column2 VARCHAR,</span><br><span class="line">    column3 INT,</span><br><span class="line">);</span><br></pre></td></tr></table></figure>
+<h1 id="创建表"><a href="#创建表" class="headerlink" title="创建表"></a>创建表</h1><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">CREATE TABLE table_name &#123;</span><br><span class="line">    column1 INT PRIMARY KEY,</span><br><span class="line">    column2 VARCHAR,</span><br><span class="line">    column3 INT</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
 <h1 id="插入数据"><a href="#插入数据" class="headerlink" title="插入数据"></a>插入数据</h1><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">INSERT INTO table_name (column1, column2, column3) VALUES (value1, value2, value3);</span><br></pre></td></tr></table></figure>
 
 
@@ -224,14 +224,14 @@
 <h3 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h3><ul>
 <li>选择指定字段</li>
 </ul>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">SELECT column1, column2, column3, FROM table_name;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">SELECT column1, column2, column3 FROM table_name;</span><br></pre></td></tr></table></figure>
 <ul>
 <li>选择所有字段</li>
 </ul>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">SELECT * FROM table_name;</span><br></pre></td></tr></table></figure>
 <p><strong>备注 ：</strong> *为通配符，表示所有字段</p>
 <h2 id="SELECT-DISTINCT"><a href="#SELECT-DISTINCT" class="headerlink" title="SELECT DISTINCT"></a>SELECT DISTINCT</h2><p>在表中，某一列可能存在重复值，select distinct 可以用于仅列出不同的值，即返回唯一不同的值。</p>
-<h3 id="语法-1"><a href="#语法-1" class="headerlink" title="语法"></a>语法</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">SELECT DISTINCT column1. column2, column3, from table_name;</span><br></pre></td></tr></table></figure>
+<h3 id="语法-1"><a href="#语法-1" class="headerlink" title="语法"></a>语法</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">SELECT DISTINCT column1, column2, column3 from table_name;</span><br></pre></td></tr></table></figure>
 <h2 id="WHERE"><a href="#WHERE" class="headerlink" title="WHERE"></a>WHERE</h2><p>where子句用于过滤记录，提取满足指定条件的记录。</p>
 <h3 id="语法-2"><a href="#语法-2" class="headerlink" title="语法"></a>语法</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">SELECT column1, column2, ... FROM table_name</span><br><span class="line">WHERE condition;</span><br></pre></td></tr></table></figure>
 <h3 id="WHERE-子句中的运算符"><a href="#WHERE-子句中的运算符" class="headerlink" title="WHERE 子句中的运算符"></a>WHERE 子句中的运算符</h3><table>
@@ -294,11 +294,11 @@
 <p>如果条件1与条件2都成立，则AND运算符显示一条记录</p>
 <p>如果条件1与条件2有至少一个成立，则OR运算符显示一条记录</p>
 <h3 id="语法-3"><a href="#语法-3" class="headerlink" title="语法"></a>语法</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">SELECT * FROM table_name WHERE condition1 AND condition2;</span><br><span class="line">SELECT * FROM table_name WHERE condition1 OR condition2;</span><br></pre></td></tr></table></figure>
-<h3 id="AND与OR结合用法"><a href="#AND与OR结合用法" class="headerlink" title="AND与OR结合用法"></a>AND与OR结合用法</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">SELECT * FROM table_name WHERE condition3 AND (ondition1 OR condition2);</span><br></pre></td></tr></table></figure>
+<h3 id="AND与OR结合用法"><a href="#AND与OR结合用法" class="headerlink" title="AND与OR结合用法"></a>AND与OR结合用法</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">SELECT * FROM table_name WHERE condition3 AND (condition1 OR condition2);</span><br></pre></td></tr></table></figure>
 <h2 id="ODER-BY"><a href="#ODER-BY" class="headerlink" title="ODER BY"></a>ODER BY</h2><p>ODER BY 用于对结果集按照一个或多个列进行排序。ODER BY 默认按照升序，如需降序可使用DESC关键字。</p>
 <h3 id="语法-4"><a href="#语法-4" class="headerlink" title="语法"></a>语法</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">SELECT column1, column2, column3  FROM table_name ODER BY column1 ASC|DESC;</span><br></pre></td></tr></table></figure>
 <p>备注：<br>ASC表示升序</p>
-<p>DSEC表示降序</p>
+<p>DESC表示降序</p>
 <h2 id="UPDATE"><a href="#UPDATE" class="headerlink" title="UPDATE"></a>UPDATE</h2><p>UPDATE用于更新表中已存在的记录</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">UPDATE table_name SET column1=value1, column2=value2 WHERE condition;</span><br></pre></td></tr></table></figure>
 <p>备注：如果没有WHERE子句，表中对应字段的所有记录将被更新</p>
