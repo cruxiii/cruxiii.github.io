@@ -23,14 +23,14 @@
   <meta name="description" content="Record and think">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Healer">
-<meta property="og:url" content="https://healer-sty.cn/page/8/index.html">
+<meta property="og:url" content="https://healer-sty.cn/page/10/index.html">
 <meta property="og:site_name" content="Healer">
 <meta property="og:description" content="Record and think">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:author" content="Sty">
 <meta name="twitter:card" content="summary">
 
-<link rel="canonical" href="https://healer-sty.cn/page/8/">
+<link rel="canonical" href="https://healer-sty.cn/page/10/">
 
 
 <script id="page-configurations">
@@ -158,7 +158,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://healer-sty.cn/2025/08/04/SQL%E8%BF%9B%E9%98%B6%E6%93%8D%E4%BD%9C%EF%BC%884%EF%BC%89/">
+    <link itemprop="mainEntityOfPage" href="https://healer-sty.cn/2025/08/06/SQL%E5%87%BD%E6%95%B0%EF%BC%881%EF%BC%89/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/image.gif">
@@ -172,7 +172,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2025/08/04/SQL%E8%BF%9B%E9%98%B6%E6%93%8D%E4%BD%9C%EF%BC%884%EF%BC%89/" class="post-title-link" itemprop="url">SQL进阶操作（4）</a>
+            <a href="/2025/08/06/SQL%E5%87%BD%E6%95%B0%EF%BC%881%EF%BC%89/" class="post-title-link" itemprop="url">SQL函数（1）</a>
         </h2>
 
         <div class="post-meta">
@@ -182,7 +182,7 @@
               </span>
               <span class="post-meta-item-text">发表于</span>
 
-              <time title="创建时间：2025-08-04 20:36:25" itemprop="dateCreated datePublished" datetime="2025-08-04T20:36:25+08:00">2025-08-04</time>
+              <time title="创建时间：2025-08-06 20:39:05" itemprop="dateCreated datePublished" datetime="2025-08-06T20:39:05+08:00">2025-08-06</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -205,34 +205,118 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h1 id="DROP"><a href="#DROP" class="headerlink" title="DROP"></a>DROP</h1><p>通过DROP语句，可以轻松删除索引、表、数据库。</p>
-<h2 id="DROP-INDEX"><a href="#DROP-INDEX" class="headerlink" title="DROP INDEX"></a>DROP INDEX</h2><p>DROP INDEX 用于删除表中索引</p>
-<h3 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h3><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">DROP</span> INDEX index_name</span><br><span class="line"><span class="keyword">ON</span> table_name;</span><br></pre></td></tr></table></figure>
-<h2 id="DROP-TABLE"><a href="#DROP-TABLE" class="headerlink" title="DROP TABLE"></a>DROP TABLE</h2><p>DROP TABLE 用于删除表。</p>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">DROP</span> <span class="keyword">TABLE</span> table_name;</span><br></pre></td></tr></table></figure>
-<h2 id="DROP-DATABASE"><a href="#DROP-DATABASE" class="headerlink" title="DROP DATABASE"></a>DROP DATABASE</h2><p>DROP DATABASE 用于删除数据库，及其中的所有表、视图等。</p>
-<h1 id="ALTER-TABLE"><a href="#ALTER-TABLE" class="headerlink" title="ALTER TABLE"></a>ALTER TABLE</h1><p>ALTER TABLE 用于在已有的表中，添加、删除或者修改列。</p>
-<h3 id="语法-1"><a href="#语法-1" class="headerlink" title="语法"></a>语法</h3><ul>
-<li>在表中添加列</li>
-</ul>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">ALTER TABLE</span> table_name</span><br><span class="line"><span class="keyword">ADD</span> column_name data_type;</span><br></pre></td></tr></table></figure>
+          <p>SQL拥有可以计算和计数的内建函数。包括Aggregate 函数和Scalar函数。</p>
 <ul>
-<li>在表中删除列</li>
+<li>Aggregate函数计算从列中取得的值，返回单一值。</li>
 </ul>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">ALTER TABLE</span> table_name</span><br><span class="line"><span class="keyword">DROP</span> <span class="keyword">COLUMN</span> column_name;</span><br></pre></td></tr></table></figure>
+<table>
+<thead>
+<tr>
+<th align="left"><strong>Aggregate 函数</strong></th>
+<th align="left"><strong>描述</strong></th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">AVG（）</td>
+<td align="left">返回平均值</td>
+</tr>
+<tr>
+<td align="left">COUNT（）</td>
+<td align="left">返回行数</td>
+</tr>
+<tr>
+<td align="left">FIRST（）</td>
+<td align="left">返回第一个记录的值</td>
+</tr>
+<tr>
+<td align="left">LAST（）</td>
+<td align="left">返回最后一个记录的值</td>
+</tr>
+<tr>
+<td align="left">MAX（）</td>
+<td align="left">返回最大值</td>
+</tr>
+<tr>
+<td align="left">MIN（）</td>
+<td align="left">返回最小值</td>
+</tr>
+<tr>
+<td align="left">SUM（）</td>
+<td align="left">返回总和</td>
+</tr>
+</tbody></table>
 <ul>
-<li>改变表中数据类型</li>
+<li>Scalar函数基于输入值返回单一的输出值。</li>
 </ul>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">ALTER TABLE</span> table_name</span><br><span class="line">MODIFY <span class="keyword">COLUMN</span> column_name data_type;</span><br></pre></td></tr></table></figure>
-<h1 id="AUTO-INCREMENT"><a href="#AUTO-INCREMENT" class="headerlink" title="AUTO INCREMENT"></a>AUTO INCREMENT</h1><p>AUTO INCREMENT 会在新纪录插入时，生成唯一的数字。</p>
-<h3 id="语法-2"><a href="#语法-2" class="headerlink" title="语法"></a>语法</h3><ul>
-<li>AUTO_INCREMENT 默认初始值为1，每条记录递增1。</li>
+<table>
+<thead>
+<tr>
+<th align="left"><strong>Scalar 函数</strong></th>
+<th align="left"><strong>描述</strong></th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">UCASE（）</td>
+<td align="left">将字段转换为大写</td>
+</tr>
+<tr>
+<td align="left">LCASE（）</td>
+<td align="left">将字段转换为小写</td>
+</tr>
+<tr>
+<td align="left">MID（）</td>
+<td align="left">从某个文本字段提取字符</td>
+</tr>
+<tr>
+<td align="left">SubString（字段，1，end）</td>
+<td align="left">从某个文本字段提取字符</td>
+</tr>
+<tr>
+<td align="left">LEN（）</td>
+<td align="left">返回某个文本字段的长度</td>
+</tr>
+<tr>
+<td align="left">ROUND（）</td>
+<td align="left">对文本字段进行小数位数的四舍五入</td>
+</tr>
+<tr>
+<td align="left">NOW（）</td>
+<td align="left">返回当前的系统日期和时间</td>
+</tr>
+<tr>
+<td align="left">FORMAT（）</td>
+<td align="left">格式化某个字段的显示方式</td>
+</tr>
+</tbody></table>
+<h1 id="AVG（）函数"><a href="#AVG（）函数" class="headerlink" title="AVG（）函数"></a>AVG（）函数</h1><p>AVG（）函数返回数值列的平均值。</p>
+<h2 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h2><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> <span class="built_in">AVG</span>(column_name) <span class="keyword">FROM</span> table_name;</span><br></pre></td></tr></table></figure>
+<h1 id="COUNT（）函数"><a href="#COUNT（）函数" class="headerlink" title="COUNT（）函数"></a>COUNT（）函数</h1><p>COUNT（）函数返回匹配指定条件列的行数。</p>
+<h2 id="语法-1"><a href="#语法-1" class="headerlink" title="语法"></a>语法</h2><ul>
+<li>返回指定列的值的数目</li>
 </ul>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">CREATE TABLE</span> table_name&#123;</span><br><span class="line">  column1 data_type(size) constraint_name AUTO_INCREMENT,  </span><br><span class="line">  column2 data_type(size) constraint_name;</span><br><span class="line">  column3 data_type(size) constraint_name;</span><br><span class="line">  column4 data_type(size) constraint_name;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> <span class="built_in">COUNT</span>(column_name) <span class="keyword">FROM</span> table_name;</span><br></pre></td></tr></table></figure>
 <ul>
-<li>若想设置初始值，则使用以下语句</li>
+<li>返回表中的记录数</li>
 </ul>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">ALTER TABLE</span> table_name AUTO_INCREMENT<span class="operator">=</span><span class="keyword">value</span>;</span><br></pre></td></tr></table></figure>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> <span class="built_in">COUNT</span>(<span class="operator">*</span>) <span class="keyword">FROM</span> table_name; </span><br></pre></td></tr></table></figure>
+<ul>
+<li>返回指定列中不同值的记录数</li>
+</ul>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> <span class="built_in">COUNT</span>(<span class="keyword">DISTINCT</span> column_name) <span class="keyword">FROM</span> table_name;</span><br></pre></td></tr></table></figure>
+<h1 id="FIRST（）函数"><a href="#FIRST（）函数" class="headerlink" title="FIRST（）函数"></a>FIRST（）函数</h1><p>FIRST（）函数返回指定列中第一个记录的值</p>
+<h2 id="语法-2"><a href="#语法-2" class="headerlink" title="语法"></a>语法</h2><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> <span class="keyword">FIRST</span>(column_name) <span class="keyword">FROM</span> table_name;</span><br></pre></td></tr></table></figure>
+<h1 id="LAST（）函数"><a href="#LAST（）函数" class="headerlink" title="LAST（）函数"></a>LAST（）函数</h1><p>LAST（）函数返回指定列中最后一个记录的值。</p>
+<h2 id="语法-3"><a href="#语法-3" class="headerlink" title="语法"></a>语法</h2><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> <span class="keyword">LAST</span>(column_name) <span class="keyword">FROM</span> table_name;</span><br></pre></td></tr></table></figure>
+<h1 id="MAX（）函数"><a href="#MAX（）函数" class="headerlink" title="MAX（）函数"></a>MAX（）函数</h1><p>MAX（）函数返回指定列的最大值。</p>
+<h2 id="语法-4"><a href="#语法-4" class="headerlink" title="语法"></a>语法</h2><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> <span class="built_in">MAX</span>(column_name) <span class="keyword">FROM</span> table_name;</span><br></pre></td></tr></table></figure>
+<h1 id="MIN（）函数"><a href="#MIN（）函数" class="headerlink" title="MIN（）函数"></a>MIN（）函数</h1><p>MIN（）函数返回指定列的最小值。</p>
+<h2 id="语法-5"><a href="#语法-5" class="headerlink" title="语法"></a>语法</h2><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> <span class="built_in">MIN</span>(column_name) <span class="keyword">FROM</span> table_name;</span><br></pre></td></tr></table></figure>
+<h1 id="SUM（）函数"><a href="#SUM（）函数" class="headerlink" title="SUM（）函数"></a>SUM（）函数</h1><p>SUM（）函数返回指定列所有值的总和。</p>
+<h2 id="语法-6"><a href="#语法-6" class="headerlink" title="语法"></a>语法</h2><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> <span class="built_in">SUM</span>(column_name) <span class="keyword">FROM</span> table_name;</span><br></pre></td></tr></table></figure>
+<h1 id="GROUP-BY-语句"><a href="#GROUP-BY-语句" class="headerlink" title="GROUP BY 语句"></a>GROUP BY 语句</h1><p>GROUP BY语句用于结合聚合函数，根据一个列或多个列对结果集进行分组。</p>
+<h2 id="语法-7"><a href="#语法-7" class="headerlink" title="语法"></a>语法</h2><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> column1, aggregate_function(column2)</span><br><span class="line"><span class="keyword">FROM</span> table_name</span><br><span class="line"><span class="keyword">WHERE</span> condition_name</span><br><span class="line"><span class="keyword">GROUP</span> <span class="keyword">BY</span> column_name;</span><br></pre></td></tr></table></figure>
+<h1 id="EXISTS-运算符"><a href="#EXISTS-运算符" class="headerlink" title="EXISTS 运算符"></a>EXISTS 运算符</h1><p>EXISTS运算符用于判断查询子句是否存在记录。如果有一条运算符则返回TRUE，否则返回FALSE。</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> column_name <span class="keyword">FROM</span> table_name </span><br><span class="line"><span class="keyword">WHERE</span> <span class="keyword">EXISTS</span></span><br><span class="line">(<span class="keyword">SELECT</span> column_name <span class="keyword">FROM</span> table_name <span class="keyword">WHERE</span> <span class="keyword">condition</span>);</span><br></pre></td></tr></table></figure>
 
 
 
@@ -253,7 +337,7 @@
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/7/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/7/">7</a><span class="page-number current">8</span><a class="page-number" href="/page/9/">9</a><span class="space">&hellip;</span><a class="page-number" href="/page/11/">11</a><a class="extend next" rel="next" href="/page/9/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
+    <a class="extend prev" rel="prev" href="/page/9/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/9/">9</a><span class="page-number current">10</span><a class="page-number" href="/page/11/">11</a><a class="extend next" rel="next" href="/page/11/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
   </nav>
 
 
